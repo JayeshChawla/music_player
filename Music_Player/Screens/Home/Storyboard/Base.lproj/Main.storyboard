@@ -13,17 +13,17 @@
             <objects>
                 <viewController id="6he-Qw-tlJ" customClass="ViewController" customModule="Music_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BH9-Al-ykC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1830"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wb-qr-oH9">
-                                <rect key="frame" x="0.0" y="-62" width="393" height="914"/>
+                                <rect key="frame" x="0.0" y="-62" width="393" height="1892"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67B-jf-i9w">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1830"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topBannerImage" translatesAutoresizingMaskIntoConstraints="NO" id="sOj-is-aD0">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="266.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="573"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="LYU-O3-kPV">
                                                 <rect key="frame" x="20.000000000000007" y="59" width="100.66666666666669" height="25"/>
@@ -152,7 +152,7 @@
                                                 </subviews>
                                             </stackView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k7y-6A-yoj">
-                                                <rect key="frame" x="20" y="234" width="353" height="746"/>
+                                                <rect key="frame" x="0.0" y="234" width="393" height="1576"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="s5J-Gg-RH2">
@@ -204,12 +204,12 @@
                                             <constraint firstAttribute="trailing" secondItem="ErQ-hq-N2p" secondAttribute="trailing" constant="20" id="Gio-Yl-Ccm"/>
                                             <constraint firstItem="DER-M7-jmp" firstAttribute="leading" secondItem="67B-jf-i9w" secondAttribute="leading" constant="20" id="QQR-Cq-hoy"/>
                                             <constraint firstAttribute="trailing" secondItem="sOj-is-aD0" secondAttribute="trailing" id="RC1-tG-mJP"/>
-                                            <constraint firstAttribute="trailing" secondItem="k7y-6A-yoj" secondAttribute="trailing" constant="20" id="Rk2-PH-42Z"/>
+                                            <constraint firstAttribute="trailing" secondItem="k7y-6A-yoj" secondAttribute="trailing" id="Rk2-PH-42Z"/>
                                             <constraint firstItem="ErQ-hq-N2p" firstAttribute="leading" secondItem="67B-jf-i9w" secondAttribute="leading" constant="20" id="TSS-Mw-LOC"/>
                                             <constraint firstAttribute="trailing" secondItem="s5J-Gg-RH2" secondAttribute="trailing" constant="20" id="fOq-4R-z1h"/>
                                             <constraint firstItem="sOj-is-aD0" firstAttribute="leading" secondItem="67B-jf-i9w" secondAttribute="leading" id="gE7-t1-Ywf"/>
-                                            <constraint firstAttribute="height" constant="1000" id="hnv-Sq-GhX"/>
-                                            <constraint firstItem="k7y-6A-yoj" firstAttribute="leading" secondItem="67B-jf-i9w" secondAttribute="leading" constant="20" id="kcP-dL-bgJ"/>
+                                            <constraint firstAttribute="height" constant="1830" id="hnv-Sq-GhX"/>
+                                            <constraint firstItem="k7y-6A-yoj" firstAttribute="leading" secondItem="67B-jf-i9w" secondAttribute="leading" id="kcP-dL-bgJ"/>
                                             <constraint firstItem="LYU-O3-kPV" firstAttribute="leading" secondItem="67B-jf-i9w" secondAttribute="leading" constant="20" id="nEd-Bw-B0J"/>
                                             <constraint firstItem="sOj-is-aD0" firstAttribute="top" secondItem="67B-jf-i9w" secondAttribute="top" id="nNi-BB-qlp"/>
                                             <constraint firstItem="ErQ-hq-N2p" firstAttribute="top" secondItem="LYU-O3-kPV" secondAttribute="bottom" constant="20" id="rw5-tL-jkK"/>
@@ -237,6 +237,7 @@
                             <constraint firstItem="7Wb-qr-oH9" firstAttribute="trailing" secondItem="S48-kO-P0j" secondAttribute="trailing" id="XL2-IM-DPi"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="393" height="1830"/>
                     <connections>
                         <outlet property="downloadView" destination="yxD-2V-zbD" id="eeC-uu-lSI"/>
                         <outlet property="forFocousView" destination="evp-1D-Xvx" id="EA2-DA-xlL"/>

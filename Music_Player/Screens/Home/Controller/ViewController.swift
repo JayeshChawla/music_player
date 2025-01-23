@@ -54,6 +54,8 @@ extension ViewController {
         tableView.register(UINib(nibName: "ContinoueTableViewCell", bundle: nil), forCellReuseIdentifier: "ContinoueTableViewCell")
         tableView.register(YourCustomHeaderView.self, forHeaderFooterViewReuseIdentifier: "headerView")
         tableView.register(UINib(nibName: "RecomendedTableViewCell", bundle: nil), forCellReuseIdentifier: "RecomendedTableViewCell")
+        tableView.register(UINib(nibName: "MusicPlaylistTableViewCell", bundle: nil), forCellReuseIdentifier: "MusicPlaylistTableViewCell")
+        tableView.register(UINib(nibName: "TrendingTableViewCell", bundle: nil), forCellReuseIdentifier: "TrendingTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -61,7 +63,7 @@ extension ViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
@@ -79,6 +81,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecomendedTableViewCell", for: indexPath) as? RecomendedTableViewCell else { return UITableViewCell() }
             return cell
+        case 2:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MusicPlaylistTableViewCell", for: indexPath) as? MusicPlaylistTableViewCell else { return UITableViewCell() }
+            return cell
+        case 3:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingTableViewCell", for: indexPath) as? TrendingTableViewCell else { return UITableViewCell() }
+            return cell
         default:
             return UITableViewCell()
         }
@@ -87,7 +95,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0: return 305
-        case 1: return 270
+        case 1: return 230
+        case 2: return 250
+        case 3: return 470
         default: return 200
         }
     }

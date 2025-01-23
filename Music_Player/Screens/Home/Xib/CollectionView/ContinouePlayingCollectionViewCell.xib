@@ -42,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="191" width="217" height="103"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="SyW-cj-nnA">
-                                                <rect key="frame" x="0.0" y="5" width="217" height="93"/>
+                                                <rect key="frame" x="5" y="5" width="207" height="93"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9z9-VA-elB">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="16.666666666666668"/>
@@ -68,9 +68,9 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="SyW-cj-nnA" secondAttribute="bottom" constant="5" id="Ipi-jH-eD3"/>
-                                            <constraint firstItem="SyW-cj-nnA" firstAttribute="leading" secondItem="6Xg-nh-2zs" secondAttribute="leading" id="gyW-2h-PV6"/>
+                                            <constraint firstItem="SyW-cj-nnA" firstAttribute="leading" secondItem="6Xg-nh-2zs" secondAttribute="leading" constant="5" id="gyW-2h-PV6"/>
                                             <constraint firstItem="SyW-cj-nnA" firstAttribute="top" secondItem="6Xg-nh-2zs" secondAttribute="top" constant="5" id="lVP-4d-HqF"/>
-                                            <constraint firstAttribute="trailing" secondItem="SyW-cj-nnA" secondAttribute="trailing" id="yVd-ID-1a8"/>
+                                            <constraint firstAttribute="trailing" secondItem="SyW-cj-nnA" secondAttribute="trailing" constant="5" id="yVd-ID-1a8"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -98,8 +98,11 @@
             </constraints>
             <size key="customSize" width="227" height="294"/>
             <connections>
+                <outlet property="descriptionView" destination="6Xg-nh-2zs" id="QHy-f4-3Hx"/>
                 <outlet property="imageScaled" destination="yAv-G7-xmO" id="mmu-9e-EWI"/>
                 <outlet property="imageView" destination="8hh-gu-P0I" id="7rI-P0-Ru4"/>
+                <outlet property="mainView" destination="ghv-fA-Rgh" id="7yG-Ls-qTs"/>
+                <outlet property="musicLbl" destination="9z9-VA-elB" id="cEi-Pz-MNN"/>
             </connections>
             <point key="canvasLocation" x="219.08396946564883" y="105.63380281690141"/>
         </collectionViewCell>
@@ -107,7 +110,7 @@
     <resources>
         <image name="musicPlayerBackgroundImage" width="860" height="1185"/>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

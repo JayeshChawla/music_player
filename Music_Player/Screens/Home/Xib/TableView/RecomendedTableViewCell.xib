@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="sLs-bG-AEL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="177"/>
+                        <rect key="frame" x="20" y="0.0" width="280" height="202"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Dea-2C-lpK">
                             <size key="itemSize" width="128" height="128"/>
@@ -28,10 +28,10 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="sLs-bG-AEL" secondAttribute="trailing" id="FmU-a8-YNL"/>
-                    <constraint firstAttribute="bottom" secondItem="sLs-bG-AEL" secondAttribute="bottom" constant="25" id="JP5-kC-uYN"/>
+                    <constraint firstAttribute="trailing" secondItem="sLs-bG-AEL" secondAttribute="trailing" constant="20" id="FmU-a8-YNL"/>
+                    <constraint firstAttribute="bottom" secondItem="sLs-bG-AEL" secondAttribute="bottom" id="JP5-kC-uYN"/>
                     <constraint firstItem="sLs-bG-AEL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Rt3-p4-YRn"/>
-                    <constraint firstItem="sLs-bG-AEL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="iKg-NY-Za9"/>
+                    <constraint firstItem="sLs-bG-AEL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="iKg-NY-Za9"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

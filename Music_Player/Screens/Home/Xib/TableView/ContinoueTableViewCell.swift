@@ -10,6 +10,8 @@ import UIKit
 class ContinoueTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var tapAction: (()->())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.register(UINib(nibName: "ContinouePlayingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ContinouePlayingCollectionViewCell")
@@ -37,6 +39,9 @@ extension ContinoueTableViewCell: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContinouePlayingCollectionViewCell", for: indexPath) as? ContinouePlayingCollectionViewCell else { return UICollectionViewCell() }
+        cell.tapCompletion = {
+            self.tapAction?()
+        }
         return cell
     }
     

@@ -20,6 +20,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var downloadView: UIView!
     @IBOutlet weak var heartView: UIView!
+    @IBOutlet weak var musicView: UIView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    private var lastContentOffset: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,7 @@ class ViewController: UIViewController {
 //MARK: Setup UI
 extension ViewController {
     private func setUpUI() {
+        self.navigationController?.isNavigationBarHidden = true
         [forWorkView, forFocousView, searchView, freeView, forStudyView].forEach { view in
             view?.layer.cornerRadius = 20
         }
@@ -44,7 +49,17 @@ extension ViewController {
                 view.layer.borderColor = UIColor.white.cgColor
             }
         }
+        
+        musicView.backgroundColor = .clear
+        scrollView.delegate = self
 
+    }
+    
+    private func presentingToTheMusicScreen() {
+        if let vc = UIStoryboard(name: "Player", bundle: nil).instantiateViewController(withIdentifier: "player") as? PlayerViewController {
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
     }
 }
 
@@ -77,14 +92,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContinoueTableViewCell", for: indexPath) as? ContinoueTableViewCell else { return UITableViewCell() }
+            cell.tapAction = {
+                self.presentingToTheMusicScreen()
+            }
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecomendedTableViewCell", for: indexPath) as? RecomendedTableViewCell else { return UITableViewCell() }
             cell.navigation = {
-                if let vc = UIStoryboard(name: "Player", bundle: nil).instantiateViewController(withIdentifier: "player") as? PlayerViewController {
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true)
-                }
+                self.presentingToTheMusicScreen()
             }
             return cell
         case 2:
@@ -92,6 +107,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingTableViewCell", for: indexPath) as? TrendingTableViewCell else { return UITableViewCell() }
+            cell.didselectedCompletion = {
+                if let vc = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(withIdentifier: "focous") as? FocousViewController {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
             return cell
         default:
             return UITableViewCell()
@@ -125,5 +145,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return nil
         }
+    }
+}
+
+extension ViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffsetY = scrollView.contentOffset.y
+        
+        if contentOffsetY > lastContentOffset {
+            musicView.backgroundColor = UIColor.black
+        } else if contentOffsetY <= 0 {
+            musicView.backgroundColor = .clear
+        }
+        
+        lastContentOffset = contentOffsetY
     }
 }

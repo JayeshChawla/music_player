@@ -41,6 +41,9 @@ extension RecomendedTableViewCell: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecomendedCollectionViewCell", for: indexPath) as? RecomendedCollectionViewCell else { return UICollectionViewCell() }
         cell.resetViewColors()
+        cell.playAction = {
+            self.navigation?()
+        }
         return cell
     }
     

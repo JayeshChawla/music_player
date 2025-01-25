@@ -15,6 +15,8 @@ class RecomendedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var firstView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     
+    var playAction: (()->())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         [imageView, stackView].forEach { view in
@@ -25,6 +27,9 @@ class RecomendedCollectionViewCell: UICollectionViewCell {
         }
         
         resetViewColors()
+    }
+    @IBAction func playButton(_ sender: Any) {
+        playAction?()
     }
     
     func animateImageView() {

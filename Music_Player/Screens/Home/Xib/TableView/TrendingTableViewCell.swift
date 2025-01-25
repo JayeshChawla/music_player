@@ -10,6 +10,7 @@ import UIKit
 class TrendingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var tableView: UITableView!
+    var didselectedCompletion: (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -62,5 +63,9 @@ extension TrendingTableViewCell: UITableViewDelegate, UITableViewDataSource {
         default:
             return 80
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didselectedCompletion?()
     }
 }

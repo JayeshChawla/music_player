@@ -32,13 +32,27 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="musicPlayerBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="DIn-t4-TkY">
                                                 <rect key="frame" x="8" y="8" width="142.33333333333334" height="155"/>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XG2-O2-tt1">
+                                                <rect key="frame" x="59.333333333333343" y="65.666666666666671" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="b52-uu-Waz"/>
+                                                    <constraint firstAttribute="width" constant="40" id="vnm-nY-qU1"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Button" image="Group 48098990"/>
+                                                <connections>
+                                                    <action selector="playButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="UZQ-7T-muQ"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="DIn-t4-TkY" firstAttribute="top" secondItem="w7V-ij-TYt" secondAttribute="top" constant="8" id="4do-LS-unf"/>
                                             <constraint firstAttribute="bottom" secondItem="DIn-t4-TkY" secondAttribute="bottom" constant="8" id="9LJ-Nw-MoO"/>
                                             <constraint firstAttribute="trailing" secondItem="DIn-t4-TkY" secondAttribute="trailing" constant="8" id="EeE-tj-8Eo"/>
+                                            <constraint firstItem="XG2-O2-tt1" firstAttribute="centerY" secondItem="w7V-ij-TYt" secondAttribute="centerY" id="RTl-U8-hPd"/>
                                             <constraint firstItem="DIn-t4-TkY" firstAttribute="leading" secondItem="w7V-ij-TYt" secondAttribute="leading" constant="8" id="UWB-jx-9ce"/>
+                                            <constraint firstItem="XG2-O2-tt1" firstAttribute="centerX" secondItem="w7V-ij-TYt" secondAttribute="centerX" id="vwV-9p-20v"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYc-12-Xl0">
@@ -146,6 +160,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="Group 48098990" width="120" height="120"/>
         <image name="musicPlayerBackgroundImage" width="860" height="1185"/>
         <image name="musicPlaylistBackground" width="860" height="648"/>
         <systemColor name="systemCyanColor">

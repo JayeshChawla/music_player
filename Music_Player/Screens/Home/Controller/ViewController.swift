@@ -80,6 +80,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecomendedTableViewCell", for: indexPath) as? RecomendedTableViewCell else { return UITableViewCell() }
+            cell.navigation = {
+                if let vc = UIStoryboard(name: "Player", bundle: nil).instantiateViewController(withIdentifier: "player") as? PlayerViewController {
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true)
+                }
+            }
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MusicPlaylistTableViewCell", for: indexPath) as? MusicPlaylistTableViewCell else { return UITableViewCell() }

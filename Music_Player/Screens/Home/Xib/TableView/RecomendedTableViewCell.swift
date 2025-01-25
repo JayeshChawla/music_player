@@ -10,6 +10,9 @@ import UIKit
 class RecomendedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var navigation: (()->())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -62,6 +65,10 @@ extension RecomendedTableViewCell: UICollectionViewDataSource, UICollectionViewD
                 }
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        navigation?()
     }
 
 }

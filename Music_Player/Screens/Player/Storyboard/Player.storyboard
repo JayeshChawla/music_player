@@ -101,6 +101,9 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button" image="favorite"/>
+                                        <connections>
+                                            <action selector="heartButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="UbA-NV-5JI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -161,6 +164,7 @@
                     </view>
                     <connections>
                         <outlet property="endTimeLbl" destination="q5w-Ov-8Pe" id="aXF-Wk-Gd2"/>
+                        <outlet property="hearButton" destination="lVY-dq-cMO" id="uq2-j8-szL"/>
                         <outlet property="playButton" destination="XCD-c6-CjT" id="QMb-8d-bEj"/>
                         <outlet property="slider" destination="Y3P-bd-VcX" id="vmq-zQ-gVs"/>
                         <outlet property="startimeLbl" destination="cZq-O5-gbg" id="AO5-ee-1xd"/>

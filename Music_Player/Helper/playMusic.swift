@@ -16,19 +16,26 @@ class AudioManager {
     private init() {}
     
     func playMusic(from urlString: String) {
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            return
+        if let player = player {
+            player.play()
+        } else {
+            guard let url = URL(string: urlString) else {
+                print("Invalid URL")
+                return
+            }
+            
+            player = AVPlayer(url: url)
+            player?.play()
         }
-        
-        player = AVPlayer(url: url)
-        player?.play()
-        print("Playing music from \(urlString)")
     }
     
     func stopMusic() {
         player?.pause()
-        print("Music stopped")
+    }
+    
+    func resetPlayer() {
+        stopMusic()
+        player = nil
     }
     
     func observePlaybackTime(completion: @escaping (Double, Double) -> Void) {

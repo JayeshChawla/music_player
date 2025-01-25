@@ -9,10 +9,13 @@ import UIKit
 
 class PlayerViewController: UIViewController {
     
+    @IBOutlet weak var hearButton: UIButton!
     @IBOutlet weak var endTimeLbl: UILabel!
     @IBOutlet weak var startimeLbl: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var playButton: UIButton!
+    
+    var isHeartPressed: Bool = false
     
     var isButtonClicked = false
     var playbackTimer: Timer?
@@ -36,8 +39,18 @@ class PlayerViewController: UIViewController {
         }
     }
     @IBAction func backButton(_ sender: Any) {
+        AudioManager.shared.resetPlayer()
         AudioManager.shared.removeObserver()
         self.dismiss(animated: true)
+    }
+    
+    @IBAction func heartButton(_ sender: Any) {
+        isHeartPressed.toggle()
+        if isHeartPressed {
+            hearButton.setImage(UIImage(named: "favoriteSelected"), for: .normal)
+        } else {
+            hearButton.setImage(UIImage(named: "favorite"), for: .normal)
+        }
     }
     @IBAction func slidingValue(_ sender: UISlider) {
         let selectedTime = sender.value

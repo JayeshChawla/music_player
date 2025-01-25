@@ -69,4 +69,9 @@ class AudioManager {
             print("Seeked to time: \(newTime)")
         }
     }
+    
+    var currentPlaybackTime: Double {
+        guard let player = player else { return 0 }
+        return CMTimeGetSeconds(player.currentTime())
+    }
 }

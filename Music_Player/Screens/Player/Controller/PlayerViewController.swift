@@ -9,14 +9,17 @@ import UIKit
 
 class PlayerViewController: UIViewController {
     
+    @IBOutlet weak var endTimeLbl: UILabel!
+    @IBOutlet weak var startimeLbl: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var playButton: UIButton!
     
     var isButtonClicked = false
+    var playbackTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.setUpUI()
+        self.setUpUI()
         self.observePlaybackTime()
     }
 
@@ -25,9 +28,11 @@ class PlayerViewController: UIViewController {
         if isButtonClicked {
             playButton.setImage(UIImage(named: "pause-button"), for: .normal)
             playMusic()
+            startTimer()
         } else {
             playButton.setImage(UIImage(named: "Group 48098990"), for: .normal)
             stopMusic()
+            stopTimer()
         }
     }
     @IBAction func backButton(_ sender: Any) {
@@ -35,14 +40,16 @@ class PlayerViewController: UIViewController {
         self.dismiss(animated: true)
     }
     @IBAction func slidingValue(_ sender: UISlider) {
-        seekToTime(Float(sender.value))
+        let selectedTime = sender.value
+        seekToTime(selectedTime)
+        updateStartTimeLabel(Double(selectedTime))
     }
 }
 
 extension PlayerViewController {
     private func setUpUI() {
-        slider.minimumValue = 0
-        slider.maximumValue = 1
+        startimeLbl.text = "0:00"
+        endTimeLbl.text = "46:08"
     }
     
     private func playMusic() {
@@ -60,13 +67,41 @@ extension PlayerViewController {
             
             let progress = Float(currentTime / totalTime)
             self.slider.value = progress
-
             self.slider.maximumValue = Float(totalTime)
+            
+            self.updateStartTimeLabel(currentTime)
+            self.endTimeLbl.text = self.formatTime(totalTime)
         }
     }
     
     private func seekToTime(_ newValue: Float) {
-          let newTime = Double(newValue)
-          AudioManager.shared.seekToTime(newTime)
-      }
+        let newTime = Double(newValue)
+        AudioManager.shared.seekToTime(newTime)
+    }
+    
+    private func updateStartTimeLabel(_ currentTime: Double) {
+        startimeLbl.text = formatTime(currentTime)
+    }
+    
+    private func formatTime(_ time: Double) -> String {
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
+        return String(format: "%d:%02d", minutes, seconds)
+    }
+}
+
+//MARK: Timer Managment 
+extension PlayerViewController {
+    private func startTimer() {
+        playbackTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            let currentTime = AudioManager.shared.currentPlaybackTime
+            self.updateStartTimeLabel(currentTime)
+        }
+    }
+    
+    private func stopTimer() {
+        playbackTimer?.invalidate()
+        playbackTimer = nil
+    }
 }

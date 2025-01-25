@@ -116,6 +116,18 @@
                                     <action selector="backButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="f1z-62-8n3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZq-O5-gbg">
+                                <rect key="frame" x="19.999999999999996" y="711" width="43.666666666666657" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5w-Ov-8Pe">
+                                <rect key="frame" x="329.33333333333331" y="711" width="43.666666666666686" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.056400634349999999" green="0.019110541790000001" blue="0.13161957260000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -133,19 +145,25 @@
                             <constraint firstItem="Y3P-bd-VcX" firstAttribute="top" secondItem="dLI-ST-SV9" secondAttribute="bottom" constant="20" id="Z7L-LC-T3D"/>
                             <constraint firstItem="XCD-c6-CjT" firstAttribute="top" secondItem="Y3P-bd-VcX" secondAttribute="bottom" constant="15" id="cHZ-Zb-SAY"/>
                             <constraint firstItem="OTt-OE-9D4" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="czx-8R-xGa"/>
+                            <constraint firstItem="q5w-Ov-8Pe" firstAttribute="trailing" secondItem="Y3P-bd-VcX" secondAttribute="trailing" id="eZ9-qO-HYB"/>
                             <constraint firstItem="dLI-ST-SV9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="hEw-iM-aRr"/>
+                            <constraint firstItem="cZq-O5-gbg" firstAttribute="leading" secondItem="Y3P-bd-VcX" secondAttribute="leading" id="hdo-AQ-pbI"/>
                             <constraint firstItem="nNh-UT-kWc" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="iQb-Iz-42c"/>
                             <constraint firstItem="OTt-OE-9D4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ieS-5e-nSq"/>
+                            <constraint firstItem="q5w-Ov-8Pe" firstAttribute="centerY" secondItem="cZq-O5-gbg" secondAttribute="centerY" id="jvs-iE-8x0"/>
                             <constraint firstItem="OTt-OE-9D4" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="570:852" id="m39-69-K0n"/>
                             <constraint firstItem="i9C-an-3mv" firstAttribute="centerY" secondItem="XCD-c6-CjT" secondAttribute="centerY" id="mFS-3e-kqQ"/>
                             <constraint firstItem="D8y-SI-kzH" firstAttribute="centerY" secondItem="XCD-c6-CjT" secondAttribute="centerY" id="uhf-JV-Fb2"/>
+                            <constraint firstItem="cZq-O5-gbg" firstAttribute="top" secondItem="Y3P-bd-VcX" secondAttribute="bottom" constant="8" id="vUR-f7-H1O"/>
                             <constraint firstItem="Xtm-pW-cf0" firstAttribute="centerY" secondItem="XCD-c6-CjT" secondAttribute="centerY" id="xlS-Ip-jOd"/>
                             <constraint firstItem="hfM-ia-QjD" firstAttribute="centerY" secondItem="dLI-ST-SV9" secondAttribute="centerY" id="zxk-fV-c06"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="endTimeLbl" destination="q5w-Ov-8Pe" id="aXF-Wk-Gd2"/>
                         <outlet property="playButton" destination="XCD-c6-CjT" id="QMb-8d-bEj"/>
                         <outlet property="slider" destination="Y3P-bd-VcX" id="vmq-zQ-gVs"/>
+                        <outlet property="startimeLbl" destination="cZq-O5-gbg" id="AO5-ee-1xd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
